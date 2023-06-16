@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "components/*": ["./components/*"],
+      "hooks/*": ["./hooks/*"],
+      "assets/*": ["./assets/*"],
+      "helpers/*": ["./helpers/*"],
+      "styles/*": ["./styles/*"],
+      "services/*": ["./services/*"],
+      "constants/*": ["./constants/*"]
+    }
+  }
+}
