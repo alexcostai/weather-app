@@ -23,7 +23,7 @@ export default function MainHoursWeather({ hours, actualTime, coords }) {
             });
           }}
         >
-          <StyledText text="Próximos 7 días" />
+          <StyledText text="Próximos 3 días" />
           <MaterialIcons
             name={"keyboard-arrow-right"}
             size={24}

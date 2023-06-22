@@ -31,7 +31,7 @@ export default function App() {
     bottomSheetState,
     setBottomSheetState,
     selectedLocation,
-    setSelectedLocation,
+    changeSelectedLocation,
   ] = useApp();
 
   if (!fontsLoaded) {
@@ -102,7 +102,7 @@ export default function App() {
         setState={setBottomSheetState}
         locations={locations}
         onSelectLocation={(location) => {
-          setSelectedLocation(location);
+          changeSelectedLocation(location);
           getDayForecast(location);
         }}
       />

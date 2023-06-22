@@ -15,6 +15,7 @@ module.exports = function (api) {
             styles: "./styles",
             services: "./services",
             constants: "./constants",
+            store: "./store",
           },
         },
       ],

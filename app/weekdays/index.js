@@ -22,7 +22,7 @@ export default function WeekDays() {
             style={styles.weatherImg}
           />
           <View>
-            <StyledText text="Tomorrow" bold />
+            <StyledText text="Mañana" bold />
             <View style={styles.temperatureContainer}>
               <StyledText
                 text={`${daysForecast.max_temperature}º`}

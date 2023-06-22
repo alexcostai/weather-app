@@ -9,7 +9,7 @@ export default function WeekDaysLayout() {
     <ScreensLayout
       MiddleComponent={() => (
         <View>
-          <StyledText text="Next 7 Days" />
+          <StyledText text="Próximos 3 días" />
         </View>
       )}
     />
