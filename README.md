@@ -1,7 +1,14 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT SHIELDS -->
-[![LinkedIn][linkedin-shield]][linkedin-url]
+<p align="center">
+  <a href="https://linkedin.com/in/alexcostai" alt="LinkedIn" target="_blank">
+    <img src="https://img.shields.io/badge/linkedin-20232A?style=for-the-badge&logo=linkedin" />
+  </a>
+  <a href="mailto:alexunio28@gmail.com" alt="LinkedIn" target="_blank">
+    <img src="https://img.shields.io/badge/email-20232A?style=for-the-badge&logo=gmail" />
+  </a>
+</p>
 
 <!-- PROJECT LOGO -->
 <br />
@@ -116,8 +123,6 @@ Project Link: [Weather App](https://github.com/alexcostai/weather-app)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/alexcostai
 [reactnative.com]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [reactnative-url]: https://reactnative.dev
 [redux.com]: https://img.shields.io/badge/Redux-20232A?style=for-the-badge&logo=redux&logoColor=764abc
