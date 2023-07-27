@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useFonts } from "expo-font";
 import * as Location from "expo-location";
 import { SplashScreen } from "expo-router";
@@ -9,6 +10,7 @@ import WeatherService from "../services/WeatherService";
 import { mappedForecast } from "helpers/mapped-response";
 import GeologicaBoldFont from "assets/fonts/Geologica-Bold.ttf";
 import GeologicaRegularFont from "assets/fonts/Geologica-Regular.ttf";
+import { WEATHER_HOURS_ITEM_WIDTH } from "constants/general-constants";
 import { setLocations, setSelectedLocation } from "store/slices/weather-slice";
 
 SplashScreen.preventAutoHideAsync();
@@ -20,6 +22,7 @@ const DEFAULT_COORDS = {
 
 export default function useApp() {
   const dispatch = useDispatch();
+  const hoursScrollViewRef = useRef(null);
   const { locations, selectedLocation } = useSelector((state) => state.weather);
   const [isLoading, setIsLoading] = useState(true);
   const [dayForecast, setDayForecast] = useState();
@@ -29,11 +32,19 @@ export default function useApp() {
     "Geologica-Regular": GeologicaRegularFont,
   });
 
-  const handleOnLayout = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
+  const handleOnLayout = useCallback(
+    async (actualHour) => {
+      if (fontsLoaded) {
+        await SplashScreen.hideAsync();
+        hoursScrollViewRef.current?.scrollTo({
+          x: WEATHER_HOURS_ITEM_WIDTH * actualHour,
+          y: 0,
+          animated: true,
+        });
+      }
+    },
+    [fontsLoaded]
+  );
 
   useEffect(() => {
     const getCurrentLocation = async () => {
@@ -45,8 +56,11 @@ export default function useApp() {
             console.log("Permission to access location was denied");
             return;
           }
-          const { coords } = await Location.getCurrentPositionAsync({});
-          const userCoords =
+          const { coords } = await Location.getCurrentPositionAsync({
+            accuracy: Location.Accuracy.Highest,
+            maximumAge: 10000,
+          });
+          userCoords =
             status !== "granted"
               ? DEFAULT_COORDS
               : {
@@ -80,7 +94,7 @@ export default function useApp() {
       setDayForecast(mappedForecast(data, true));
       setIsLoading(false);
     } catch (error) {
-      console.log(error);
+      console.log("Weather Service: ", error);
     }
   };
 
@@ -95,5 +109,6 @@ export default function useApp() {
     setBottomSheetState,
     selectedLocation,
     changeSelectedLocation,
+    hoursScrollViewRef,
   ];
 }

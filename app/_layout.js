@@ -1,6 +1,7 @@
 import React from "react";
 import { Slot } from "expo-router";
 import { Provider } from "react-redux";
+import { PaperProvider } from "react-native-paper";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, StatusBar } from "react-native";
 //project imports
@@ -11,10 +12,12 @@ const CURRENT_STATUS_BAR_HEIGHT = StatusBar.currentHeight;
 export default function AppLayout() {
   return (
     <Provider store={store}>
-      <SafeAreaView style={styles.container}>
-        <Slot />
-        <ExpoStatusBar style="auto" />
-      </SafeAreaView>
+      <PaperProvider>
+        <SafeAreaView style={styles.container}>
+          <Slot />
+          <ExpoStatusBar style="auto" />
+        </SafeAreaView>
+      </PaperProvider>
     </Provider>
   );
 }

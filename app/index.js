@@ -32,6 +32,7 @@ export default function App() {
     setBottomSheetState,
     selectedLocation,
     changeSelectedLocation,
+    hoursScrollViewRef,
   ] = useApp();
 
   if (!fontsLoaded) {
@@ -42,59 +43,67 @@ export default function App() {
     <PageLoader />
   ) : (
     <>
-      <ScrollView style={styles.container} onLayout={handleOnLayout}>
-        <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.ubicationBtn}
-            onPress={() => {
-              setBottomSheetState(true);
-            }}
-          >
-            <StyledText
-              text={selectedLocation.description}
-              bold
-              style={styles.ubicationText}
-              numberOfLines={1}
-            />
-            <MaterialIcons
-              name={"keyboard-arrow-down"}
-              size={24}
-              color={TextColors.mainColor}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.mainContainer}>
-          <StyledText text="Hoy" />
-          <StyledText
-            text={moment(dayForecast.date).format("dddd, D [de] MMMM")}
-            style={{ color: TextColors.light, fontSize: 12 }}
-          />
-          <View style={styles.boxContainer}>
-            <Image
-              source={getWeatherImage(dayForecast.condition.icon)}
-              resizeMode="contain"
-              style={styles.weatherImg}
-            />
-            <StyledText
-              text={dayForecast.condition[dayForecast.isDay ? "day" : "night"]}
-              style={{ textAlign: "center" }}
-            />
-            <StyledText
-              text={`${dayForecast.temperature}º`}
-              style={{
-                fontSize: 45,
-                marginBottom: 10,
-                color: TextColors.mainColor,
+      <ScrollView
+        style={styles.container}
+        onLayout={() => handleOnLayout(dayForecast.forHours.actualHour)}
+        contentContainerStyle={styles.scrollContainer}
+      >
+        <View>
+          <View style={styles.header}>
+            <TouchableOpacity
+              style={styles.ubicationBtn}
+              onPress={() => {
+                setBottomSheetState(true);
               }}
-              bold
+            >
+              <StyledText
+                text={selectedLocation.description}
+                bold
+                style={styles.ubicationText}
+                numberOfLines={1}
+              />
+              <MaterialIcons
+                name={"keyboard-arrow-down"}
+                size={24}
+                color={TextColors.mainColor}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.mainContainer}>
+            <StyledText text="Hoy" />
+            <StyledText
+              text={moment(dayForecast.date).format("dddd, D [de] MMMM")}
+              style={{ color: TextColors.light, fontSize: 12 }}
             />
-            <WeatherDataIcons forecast={dayForecast} />
+            <View style={styles.boxContainer}>
+              <Image
+                source={getWeatherImage(dayForecast.condition.icon)}
+                resizeMode="contain"
+                style={styles.weatherImg}
+              />
+              <StyledText
+                text={
+                  dayForecast.condition[dayForecast.isDay ? "day" : "night"]
+                }
+                style={{ textAlign: "center" }}
+              />
+              <StyledText
+                text={`${dayForecast.temperature}º`}
+                style={{
+                  fontSize: 45,
+                  marginBottom: 10,
+                  color: TextColors.mainColor,
+                }}
+                bold
+              />
+              <WeatherDataIcons forecast={dayForecast} />
+            </View>
           </View>
         </View>
         <MainHoursWeather
+          hoursScrollViewRef={hoursScrollViewRef}
           coords={selectedLocation}
-          hours={dayForecast.forHours.hours}
-          actualTime={dayForecast.localtime}
+          forHours={dayForecast.forHours}
         />
       </ScrollView>
       <LocationsBottomSheet
@@ -114,6 +123,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: GeneralColors.background,
+  },
+  scrollContainer: {
+    flexGrow: 1,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   header: {
     width: "100%",

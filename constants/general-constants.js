@@ -1,0 +1,1 @@
+export const WEATHER_HOURS_ITEM_WIDTH = 75;

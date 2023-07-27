@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "expo-router";
+import { useSelector } from "react-redux";
 import { GOOGLE_MAPS_API_KEY } from "@env";
+import { Snackbar } from "react-native-paper";
 import { MaterialIcons } from "@expo/vector-icons";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 //project imports
 import { storageLocation } from "helpers/utils";
@@ -10,6 +12,8 @@ import { GeneralColors, TextColors } from "styles/palette";
 
 export default function AddLocation() {
   const router = useRouter();
+  const [showSnackBar, setShowSnackBar] = useState(false);
+  const { locations } = useSelector((state) => state.weather);
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -30,11 +34,12 @@ export default function AddLocation() {
           onPress={async (data, details = null) => {
             const { lat: latitude, lng: longitude } =
               details?.geometry?.location;
-            const res = await storageLocation(
-              { latitude, longitude },
-              data.description
-            );
-            console.log(res);
+            if (locations.some((e) => e.description === data.description)) {
+              setShowSnackBar(true);
+            } else {
+              await storageLocation({ latitude, longitude }, data.description);
+              router.push("/");
+            }
           }}
           styles={styles.googleAutocomplete}
           fetchDetails={true}
@@ -45,6 +50,18 @@ export default function AddLocation() {
           }}
         />
       </View>
+      <Snackbar
+        visible={showSnackBar}
+        onDismiss={() => setShowSnackBar(false)}
+        duration={2000}
+        style={{
+          backgroundColor: GeneralColors.backgroundMainColor,
+        }}
+      >
+        <Text style={{ color: TextColors.main }}>
+          Ya añadiste esa ubicación!
+        </Text>
+      </Snackbar>
     </View>
   );
 }

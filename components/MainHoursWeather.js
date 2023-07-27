@@ -7,7 +7,11 @@ import StyledText from "components/StyledText";
 import HoursWeatherList from "./HoursWeatherList";
 import { GeneralColors, TextColors } from "styles/palette";
 
-export default function MainHoursWeather({ hours, actualTime, coords }) {
+export default function MainHoursWeather({
+  forHours,
+  coords,
+  hoursScrollViewRef,
+}) {
   const router = useRouter();
   return (
     <View style={styles.container}>
@@ -32,7 +36,7 @@ export default function MainHoursWeather({ hours, actualTime, coords }) {
         </TouchableOpacity>
       </View>
       <View style={styles.divider} />
-      <HoursWeatherList hours={hours} actualTime={actualTime} />
+      <HoursWeatherList forHours={forHours} reference={hoursScrollViewRef} />
     </View>
   );
 }

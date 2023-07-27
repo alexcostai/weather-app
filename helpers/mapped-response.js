@@ -1,3 +1,4 @@
+import moment from "moment";
 //project imports
 import { getReponseConditionByCode } from "./utils";
 import { IS_DAY } from "constants/weather-service-constants";
@@ -27,6 +28,7 @@ const mappedForecast = (data, isOneDay) => {
   if (isOneDay) {
     mappedForecast.forHours = {
       hours: getDayHours(actualDay),
+      actualHour: moment(mappedForecast.localtime).hour(),
     };
   } else {
     mappedForecast.days = data.forecast.forecastday.slice(1).map((day) => ({

@@ -4,7 +4,7 @@ export const weatherSlice = createSlice({
   name: "weather",
   initialState: {
     locations: [],
-    selectedLocation: {},
+    selectedLocation: null,
   },
   reducers: {
     setLocations: (state, action) => {

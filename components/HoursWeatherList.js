@@ -6,26 +6,27 @@ import { ScrollView } from "react-native-gesture-handler";
 import StyledText from "./StyledText";
 import { getWeatherImage } from "helpers/utils";
 import { GeneralColors, TextColors } from "styles/palette";
+import { WEATHER_HOURS_ITEM_WIDTH } from "constants/general-constants";
 
-export default function HoursWeatherList({ hours, actualTime }) {
-  const actualHour = moment(actualTime).hour();
+export default function HoursWeatherList({ forHours, reference }) {
   return (
     <ScrollView
       horizontal
+      ref={reference}
       contentContainerStyle={{
         paddingHorizontal: 5,
         backgroundColor: GeneralColors.backgroundMainLightColor,
       }}
     >
-      {hours.map((hour, idx) => (
+      {forHours.hours.map((hour, idx) => (
         <View
           style={{
             ...styles.hourContainer,
             backgroundColor:
-              actualHour === moment(hour.time).hour()
+              forHours.actualHour === moment(hour.time).hour()
                 ? GeneralColors.backgroundMainColor
                 : "",
-            marginRight: hours.length !== idx + 1 ? 5 : 0,
+            marginRight: forHours.hours.length !== idx + 1 ? 5 : 0,
           }}
           key={idx}
         >
@@ -56,6 +57,7 @@ const styles = StyleSheet.create({
     marginVertical: 2,
   },
   hourContainer: {
+    width: WEATHER_HOURS_ITEM_WIDTH,
     padding: 10,
     display: "flex",
     alignItems: "center",
