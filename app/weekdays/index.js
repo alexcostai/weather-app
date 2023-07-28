@@ -19,6 +19,7 @@ export default function WeekDays() {
         <View style={styles.tomorrowContainer}>
           <Image
             source={getWeatherImage(daysForecast.condition.icon)}
+            resizeMode="contain"
             style={styles.weatherImg}
           />
           <View>
@@ -36,6 +37,7 @@ export default function WeekDays() {
                 text={`${daysForecast.min_temperature}º`}
                 style={{
                   fontSize: 20,
+                  marginLeft: 5,
                   color: TextColors.main,
                 }}
               />

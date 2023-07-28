@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { useRouter } from "expo-router";
-import { useSelector } from "react-redux";
 import { GOOGLE_MAPS_API_KEY } from "@env";
 import { Snackbar } from "react-native-paper";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useDispatch, useSelector } from "react-redux";
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 //project imports
 import { storageLocation } from "helpers/utils";
+import { setLocations } from "store/slices/weather-slice";
 import { GeneralColors, TextColors } from "styles/palette";
 
 export default function AddLocation() {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [showSnackBar, setShowSnackBar] = useState(false);
   const { locations } = useSelector((state) => state.weather);
   return (
@@ -37,7 +39,11 @@ export default function AddLocation() {
             if (locations.some((e) => e.description === data.description)) {
               setShowSnackBar(true);
             } else {
-              await storageLocation({ latitude, longitude }, data.description);
+              const newLocations = await storageLocation(
+                { latitude, longitude },
+                data.description
+              );
+              dispatch(setLocations(newLocations));
               router.push("/");
             }
           }}
@@ -49,6 +55,11 @@ export default function AddLocation() {
             type: "(cities)",
           }}
         />
+      </View>
+      <View style={styles.searchUbicationContainer}>
+        <Text style={styles.searchUbicationTxt}>
+          ¡Busca la ubicacion que quieras!
+        </Text>
       </View>
       <Snackbar
         visible={showSnackBar}
@@ -98,5 +109,19 @@ const styles = StyleSheet.create({
       marginLeft: 30,
       borderColor: GeneralColors.backgroundMainLightColor,
     },
+  },
+  searchUbicationContainer: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    zIndex: -1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  searchUbicationTxt: {
+    fontSize: 20,
+    textAlign: "center",
+    color: TextColors.mainColor,
   },
 });
