@@ -56,6 +56,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+<div align="center">
+  <img src="https://github.com/alexcostai/weather-app/assets/29156155/f8c813ee-b2c8-4b47-a0e2-d323d352aee2" width="25%" />
+  <img src="https://github.com/alexcostai/weather-app/assets/29156155/c4ab47d7-d521-4718-a177-58f3de6184b2" width="25%" />
+</div>
+
+
 Weather App is a powerful and intuitive app that provides you with real-time weather updates.
 Whit this app, you'll always know what to expect from the weather, so you can plan your day accordingly.
 
