@@ -111,7 +111,7 @@ This is an example of how to list things you need to use the software and how to
 <!-- CONTACT -->
 ## Contact
 
-Alex Costa - [Instagram](https://www.instagram.com/alexcostai/) - alexunio28@gmail.com
+Alex Costa - [LinkedIn](https://linkedin.com/in/alexcostai) - alexunio28@gmail.com
 
 Project Link: [Weather App](https://github.com/alexcostai/weather-app)
 
