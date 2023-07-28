@@ -11,7 +11,6 @@
 </p>
 
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
   <a href="https://github.com/alexcostai/weather-app">
     <img src="assets/icon.png" alt="Logo" width="80" height="80">
@@ -19,7 +18,6 @@
   <h3 align="center">Weather App</h3>
   <p align="center">
     App of Weather
-    <br />
     <a href="https://github.com/alexcostai/weather-app"><strong>Explore the docs »</strong></a>
     <br />
     <br />
