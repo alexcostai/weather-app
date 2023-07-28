@@ -2,11 +2,17 @@
 
 <!-- PROJECT SHIELDS -->
 <p align="center">
-  <a href="https://linkedin.com/in/alexcostai" alt="LinkedIn" target="_blank">
-    <img src="https://img.shields.io/badge/linkedin-20232A?style=for-the-badge&logo=linkedin" />
+  <a href="https://personal-portfolio-0tdn.onrender.com/" alt="portfolio" target="_blank">
+    <img src="https://img.shields.io/badge/Portafolio-3d3d3d?style=for-the-badge&logo=visualstudiocode&logoColor=white" />
   </a>
-  <a href="mailto:alexunio28@gmail.com" alt="LinkedIn" target="_blank">
-    <img src="https://img.shields.io/badge/email-20232A?style=for-the-badge&logo=gmail" />
+  <a href="https://linkedin.com/in/alexcostai" alt="LinkedIn" target="_blank">
+    <img src="https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="mailto:alexunio28@gmail.com" alt="Gmail" target="_blank">
+    <img src="https://img.shields.io/badge/email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+  <a href="https://github.com/alexcostai/" alt="github" target="_blank">
+    <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=github&logoColor=white" />
   </a>
 </p>
 
@@ -115,9 +121,21 @@ This is an example of how to list things you need to use the software and how to
 <!-- CONTACT -->
 ## Contact
 
-Alex Costa - [LinkedIn](https://linkedin.com/in/alexcostai) - alexunio28@gmail.com
+<p align="center">
+  <a href="https://personal-portfolio-0tdn.onrender.com/" alt="portfolio" target="_blank">
+    <img src="https://img.shields.io/badge/Portafolio-3d3d3d?style=for-the-badge&logo=visualstudiocode&logoColor=white" />
+  </a>
+  <a href="https://linkedin.com/in/alexcostai" alt="LinkedIn" target="_blank">
+    <img src="https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="mailto:alexunio28@gmail.com" alt="Gmail" target="_blank">
+    <img src="https://img.shields.io/badge/email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+  <a href="https://github.com/alexcostai/" alt="github" target="_blank">
+    <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
 
-Project Link: [Weather App](https://github.com/alexcostai/weather-app)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
