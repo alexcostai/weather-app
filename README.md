@@ -118,7 +118,7 @@ Project Link: [Weather App](https://github.com/alexcostai/weather-app)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[reactnative.com]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[reactnative.com]: https://img.shields.io/badge/React%20Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [reactnative-url]: https://reactnative.dev
 [redux.com]: https://img.shields.io/badge/Redux-20232A?style=for-the-badge&logo=redux&logoColor=764abc
 [redux-url]: https://redux.js.org
