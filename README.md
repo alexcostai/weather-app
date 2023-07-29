@@ -92,7 +92,6 @@ Whit this app, you'll always know what to expect from the weather, so you can pl
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
   npm install npm@latest -g
