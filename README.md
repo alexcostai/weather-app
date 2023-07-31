@@ -22,6 +22,10 @@
     <img src="assets/icon.png" alt="Logo" width="80" height="80">
   </a>
   <h3 align="center">Weather App</h3>
+    <div align="center">
+      <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" />
+      <img src="https://img.shields.io/badge/ios-000000?style=for-the-badge&logo=apple&logoColor=white" />
+    </div>
   <p align="center">
     App of Weather
     <a href="https://github.com/alexcostai/weather-app"><strong>Explore the docs »</strong></a>
