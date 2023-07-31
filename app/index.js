@@ -4,6 +4,7 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
+  RefreshControl,
 } from "react-native";
 import "moment/locale/es";
 import moment from "moment";
@@ -33,6 +34,8 @@ export default function App() {
     selectedLocation,
     changeSelectedLocation,
     hoursScrollViewRef,
+    isRefreshing,
+    onRefresh,
   ] = useApp();
 
   if (!fontsLoaded) {
@@ -47,6 +50,9 @@ export default function App() {
         style={styles.container}
         onLayout={() => handleOnLayout(dayForecast.forHours.actualHour)}
         contentContainerStyle={styles.scrollContainer}
+        refreshControl={
+          <RefreshControl refreshing={isRefreshing} onRefresh={onRefresh} />
+        }
       >
         <View>
           <View style={styles.header}>

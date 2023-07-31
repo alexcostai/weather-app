@@ -26,6 +26,7 @@ export default function useApp() {
   const { locations, selectedLocation } = useSelector((state) => state.weather);
   const [isLoading, setIsLoading] = useState(true);
   const [dayForecast, setDayForecast] = useState();
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [bottomSheetState, setBottomSheetState] = useState(false);
   const [fontsLoaded] = useFonts({
     "Geologica-Bold": GeologicaBoldFont,
@@ -98,6 +99,12 @@ export default function useApp() {
     }
   };
 
+  const onRefresh = async () => {
+    setIsRefreshing(true);
+    await getDayForecast(selectedLocation);
+    setIsRefreshing(false);
+  };
+
   return [
     fontsLoaded,
     handleOnLayout,
@@ -110,5 +117,7 @@ export default function useApp() {
     selectedLocation,
     changeSelectedLocation,
     hoursScrollViewRef,
+    isRefreshing,
+    onRefresh,
   ];
 }

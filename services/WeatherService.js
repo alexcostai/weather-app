@@ -23,7 +23,7 @@ const getDayForecast = (coords) => {
 const getWeekdaysForecast = (coords) => {
   return http.get(
     `/forecast.json?${addApiKey(
-      `q=${coords.latitude},${coords.longitude}&days=8`
+      `q=${coords.latitude},${coords.longitude}&days=3`
     )}`
   );
 };

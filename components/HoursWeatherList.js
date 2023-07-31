@@ -8,7 +8,11 @@ import { getWeatherImage } from "helpers/utils";
 import { GeneralColors, TextColors } from "styles/palette";
 import { WEATHER_HOURS_ITEM_WIDTH } from "constants/general-constants";
 
-export default function HoursWeatherList({ forHours, reference }) {
+export default function HoursWeatherList({
+  forHours,
+  reference,
+  hourContainerStyle,
+}) {
   return (
     <ScrollView
       horizontal
@@ -22,6 +26,7 @@ export default function HoursWeatherList({ forHours, reference }) {
         <View
           style={{
             ...styles.hourContainer,
+            ...hourContainerStyle,
             backgroundColor:
               forHours.actualHour === moment(hour.time).hour()
                 ? GeneralColors.backgroundMainColor

@@ -8,6 +8,7 @@ import { getWeatherImage } from "helpers/utils";
 import WeatherDaysList from "components/WeatherDaysList";
 import WeatherDataIcons from "components/WeatherDataIcons";
 import { GeneralColors, TextColors } from "styles/palette";
+import HoursWeatherList from "components/HoursWeatherList";
 
 export default function WeekDays() {
   const [isLoading, daysForecast] = useWeekDays();
@@ -53,7 +54,13 @@ export default function WeekDays() {
             />
           </View>
         </View>
-        <WeatherDataIcons forecast={daysForecast.days[0]} />
+        <HoursWeatherList
+          forHours={daysForecast.days[0].forHours}
+          hourContainerStyle={{ width: "auto" }}
+        />
+        <View style={{ paddingHorizontal: 20, marginTop: 20 }}>
+          <WeatherDataIcons forecast={daysForecast.days[0]} />
+        </View>
       </View>
       <View style={{ marginTop: 20 }}>
         <WeatherDaysList list={daysForecast.days} />
@@ -68,11 +75,11 @@ const styles = StyleSheet.create({
     backgroundColor: GeneralColors.background,
   },
   tomorrowBox: {
-    padding: 20,
     marginTop: 10,
     width: "100%",
     display: "flex",
     borderRadius: 20,
+    paddingVertical: 20,
     alignItems: "center",
     backgroundColor: GeneralColors.backgroundLight,
   },
@@ -81,6 +88,7 @@ const styles = StyleSheet.create({
     display: "flex",
     marginBottom: 25,
     flexDirection: "row",
+    paddingHorizontal: 20,
     justifyContent: "space-around",
   },
   weatherImg: {
