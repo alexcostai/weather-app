@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { useRouter } from "expo-router";
 import { GOOGLE_MAPS_API_KEY } from "@env";
-import { Snackbar } from "react-native-paper";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 //project imports
 import { storageLocation } from "helpers/utils";
-import { setLocations } from "store/slices/weather-slice";
+import AddLocationList from "components/AddLocationList";
 import { GeneralColors, TextColors } from "styles/palette";
+import { setLocations, setSelectedLocation } from "store/slices/weather-slice";
 
 export default function AddLocation() {
   const router = useRouter();
   const dispatch = useDispatch();
-  const [showSnackBar, setShowSnackBar] = useState(false);
   const { locations } = useSelector((state) => state.weather);
   return (
     <View style={styles.container}>
@@ -36,14 +35,21 @@ export default function AddLocation() {
           onPress={async (data, details = null) => {
             const { lat: latitude, lng: longitude } =
               details?.geometry?.location;
-            if (locations.some((e) => e.description === data.description)) {
-              setShowSnackBar(true);
+            const searchedLocation = locations.find(
+              (e) => e.description === data.description
+            );
+            if (searchedLocation) {
+              dispatch(setSelectedLocation(searchedLocation));
+              router.push("/");
             } else {
               const newLocations = await storageLocation(
                 { latitude, longitude },
                 data.description
               );
               dispatch(setLocations(newLocations));
+              dispatch(
+                setSelectedLocation(newLocations[newLocations.length - 1])
+              );
               router.push("/");
             }
           }}
@@ -56,23 +62,7 @@ export default function AddLocation() {
           }}
         />
       </View>
-      <View style={styles.searchUbicationContainer}>
-        <Text style={styles.searchUbicationTxt}>
-          ¡Busca la ubicacion que quieras!
-        </Text>
-      </View>
-      <Snackbar
-        visible={showSnackBar}
-        onDismiss={() => setShowSnackBar(false)}
-        duration={2000}
-        style={{
-          backgroundColor: GeneralColors.backgroundMainColor,
-        }}
-      >
-        <Text style={{ color: TextColors.main }}>
-          Ya añadiste esa ubicación!
-        </Text>
-      </Snackbar>
+      <AddLocationList locations={locations} />
     </View>
   );
 }
@@ -109,19 +99,5 @@ const styles = StyleSheet.create({
       marginLeft: 30,
       borderColor: GeneralColors.backgroundMainLightColor,
     },
-  },
-  searchUbicationContainer: {
-    width: "100%",
-    height: "100%",
-    position: "absolute",
-    zIndex: -1,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  searchUbicationTxt: {
-    fontSize: 20,
-    textAlign: "center",
-    color: TextColors.mainColor,
   },
 });

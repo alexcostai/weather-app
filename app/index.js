@@ -163,5 +163,6 @@ const styles = StyleSheet.create({
   ubicationText: {
     color: TextColors.mainColor,
     width: 120,
+    textAlign: "center",
   },
 });

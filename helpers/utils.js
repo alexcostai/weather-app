@@ -47,8 +47,12 @@ const storageLocation = async (
   } else {
     locations = [location];
   }
-  await AsyncStorage.setItem("locations", JSON.stringify(locations));
+  setLocations(locations);
   return locations;
+};
+
+const setLocations = async (locations) => {
+  await AsyncStorage.setItem("locations", JSON.stringify(locations));
 };
 
 const getLocations = async () => {
@@ -62,4 +66,5 @@ export {
   toFirstUpperCase,
   storageLocation,
   getLocations,
+  setLocations,
 };
