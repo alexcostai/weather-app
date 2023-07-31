@@ -65,8 +65,9 @@
 ## About The Project
 
 <div align="center">
-  <img src="https://github.com/alexcostai/weather-app/assets/29156155/f8c813ee-b2c8-4b47-a0e2-d323d352aee2" width="25%" />
-  <img src="https://github.com/alexcostai/weather-app/assets/29156155/c4ab47d7-d521-4718-a177-58f3de6184b2" width="25%" />
+  <img src="https://github.com/alexcostai/weather-app/assets/29156155/78077228-410a-4f1c-814a-708a8d2bfdc8ﬁ" width="25%" />
+  <img src="https://github.com/alexcostai/weather-app/assets/29156155/5b3c9315-e0d0-482c-b272-db6b197b00d4" width="25%" />
+  <img src="https://github.com/alexcostai/weather-app/assets/29156155/d241a2a7-cc9a-42d5-9239-75f1a3462d5a" width="25%" />
 </div>
 
 
