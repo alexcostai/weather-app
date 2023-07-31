@@ -12,20 +12,9 @@ export default function WeatherDaysList({ list }) {
       <View style={styles.dayContainter}>
         <StyledText
           text={toFirstUpperCase(moment(day.date).format("dddd"))}
-          style={{
-            flex: 1,
-            fontSize: 12,
-            color: TextColors.light,
-          }}
+          style={styles.dayTxt}
         />
-        <View
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-        >
+        <View style={styles.weatherContainer}>
           <Image
             source={getWeatherImage(day.condition.icon)}
             style={styles.dayWeatherImg}
@@ -33,23 +22,10 @@ export default function WeatherDaysList({ list }) {
           <StyledText
             text={day.condition["day"]}
             numberOfLines={1}
-            style={{
-              fontSize: 12,
-              width: "100%",
-              color: TextColors.light,
-              marginLeft: 5,
-            }}
+            style={styles.weatherTxt}
           />
         </View>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "flex-end",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "baseline",
-          }}
-        >
+        <View style={styles.temperatureContainer}>
           <StyledText
             text={`${day.max_temperature}º`}
             style={{
@@ -89,5 +65,29 @@ const styles = StyleSheet.create({
   dayWeatherImg: {
     height: 24,
     width: 24,
+  },
+  temperatureContainer: {
+    flex: 1,
+    justifyContent: "flex-end",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "baseline",
+  },
+  weatherContainer: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  weatherTxt: {
+    fontSize: 12,
+    width: "100%",
+    color: TextColors.light,
+    marginLeft: 5,
+  },
+  dayTxt: {
+    flex: 1,
+    fontSize: 12,
+    color: TextColors.light,
   },
 });

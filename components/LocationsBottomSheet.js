@@ -2,11 +2,12 @@ import React from "react";
 import { useRouter } from "expo-router";
 import { BottomSheet } from "react-native-btr";
 import { MaterialIcons } from "@expo/vector-icons";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View, TouchableOpacity, Platform } from "react-native";
 //project imports
 import StyledText from "./StyledText";
 import LocationsList from "./LocationsList";
 import { GeneralColors, TextColors } from "styles/palette";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function LocationsBottomSheet({
   state,
@@ -15,6 +16,7 @@ export default function LocationsBottomSheet({
   onSelectLocation,
 }) {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const toggleBottomNavigationView = () => setState(false);
   return (
     <BottomSheet
@@ -22,7 +24,12 @@ export default function LocationsBottomSheet({
       onBackButtonPress={toggleBottomNavigationView}
       onBackdropPress={toggleBottomNavigationView}
     >
-      <View style={styles.container}>
+      <View
+        style={{
+          ...styles.container,
+          paddingBottom: Platform.OS === "ios" ? insets.bottom : 0,
+        }}
+      >
         <LocationsList
           locations={locations}
           onSelectLocation={onSelectLocation}
@@ -54,7 +61,6 @@ export default function LocationsBottomSheet({
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    paddingBottom: 0,
     maxHeight: "60%",
     backgroundColor: GeneralColors.background,
     borderTopEndRadius: 20,
