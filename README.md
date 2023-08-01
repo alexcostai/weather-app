@@ -71,7 +71,7 @@
 </div>
 
 
-Weather App is a powerful and intuitive app that provides you with real-time weather updates.
+Weather App is a Open Source app that provides you with real-time weather updates.
 Whit this app, you'll always know what to expect from the weather, so you can plan your day accordingly.
 
 * Real-time weather updates: Get the latest weather conditions for your current location or any other city in the world.
