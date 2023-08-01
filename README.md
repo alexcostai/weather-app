@@ -31,8 +31,6 @@
     <a href="https://github.com/alexcostai/weather-app"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/alexcostai/weather-app">View Demo</a>
-    ·
     <a href="https://github.com/alexcostai/weather-app/issues">Report Bug</a>
     ·
     <a href="https://github.com/alexcostai/weather-app/issues">Request Feature</a>
