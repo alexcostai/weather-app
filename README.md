@@ -3,7 +3,7 @@
 <!-- PROJECT SHIELDS -->
 <p align="center">
   <a href="https://personal-portfolio-0tdn.onrender.com/" alt="portfolio" target="_blank">
-    <img src="https://img.shields.io/badge/Portafolio-3d3d3d?style=for-the-badge&logo=visualstudiocode&logoColor=white" />
+    <img src="https://img.shields.io/badge/Portfolio-3d3d3d?style=for-the-badge&logo=visualstudiocode&logoColor=white" />
   </a>
   <a href="https://linkedin.com/in/alexcostai" alt="LinkedIn" target="_blank">
     <img src="https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
@@ -125,7 +125,7 @@ Whit this app, you'll always know what to expect from the weather, so you can pl
 
 <p align="center">
   <a href="https://personal-portfolio-0tdn.onrender.com/" alt="portfolio" target="_blank">
-    <img src="https://img.shields.io/badge/Portafolio-3d3d3d?style=for-the-badge&logo=visualstudiocode&logoColor=white" />
+    <img src="https://img.shields.io/badge/Portfolio-3d3d3d?style=for-the-badge&logo=visualstudiocode&logoColor=white" />
   </a>
   <a href="https://linkedin.com/in/alexcostai" alt="LinkedIn" target="_blank">
     <img src="https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
